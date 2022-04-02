@@ -1,0 +1,26 @@
+{"myArray" : [
+    {
+        "main": "main Text 1",
+        "hidden": "Hiden text 1 full screen or whatever"
+    },
+    {
+        "main" :"main Text 2",
+        "hidden": "Hiden text 2 full screen or whatever"
+    },
+    {
+        "main": "main Text 3",
+        "hidden": "Hiden text 3 full screen or whatever"
+    },
+    {
+        "main": "main Text 4",
+        "hidden": "Hiden text 4 full screen or whatever"
+    },
+    {
+        "main": "main Text 5",
+        "hidden": "Hiden text 5 full screen or whatever"
+    },
+    {
+        "main": "main Text 6",
+        "hidden": "Hiden text 6 full screen or whatever"
+    }
+]}

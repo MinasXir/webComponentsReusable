@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.nav {
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  margin-left: 5%;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  margin-right: 5%;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: large;
+  padding: 30px;
+  color: #474747;
+}

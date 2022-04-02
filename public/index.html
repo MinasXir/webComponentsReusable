@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>web components</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+    <script src="testComponent.js" defer></script>
+  </head>
+  <body>
+    <div class="nav">
+      <div class="logo">
+        <h1>LOGO</h1>
+      </div>
+      <div class="links">
+        <button route="/">Home</button>
+        <button route="/about-page">About</button>
+        <button route="/contact-page">Contact</button>
+      </div>
+    </div>
+    <div id="view"></div>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", (event) => {
+        //select app view
+        const view = document.getElementById("view");
+
+        //select all buttons
+        const activeRoutes = Array.from(
+          document.querySelectorAll(".links [route]")
+        );
+
+        //Function for navigation and rendering
+        function navigate(eEvent) {
+          const route = eEvent.target.attributes[0].value;
+          const routInfo = myFirstRouter.routes.filter((r) => {
+            return r.path === route;
+          })[0];
+          !routInfo
+            ? alert("No content here")
+            : window.history.pushState({}, "name", routInfo.path);
+          view.innerHTML = `${routInfo.template}`;
+        }
+
+        //click event trigers navigation function
+        activeRoutes.forEach((route) => {
+          route.addEventListener("click", navigate, true);
+        });
+
+        //data constructor
+        const Router = function (name, routes) {
+          return {
+            name: name,
+            routes: routes,
+          };
+        };
+        const myFirstRouter = new Router("myFirstRouter", [
+          {
+            path: "/",
+            name: "Root",
+            template: `<main-page title="Page 1">
+              </main-page>`,
+          },
+          {
+            path: "/about-page",
+            name: "About",
+            template: `<main-page test= '[
+        {"name": "Minas" },
+        {"name": "Peter" },
+        {"name": "Nick" },
+        {"name": "John" }]'></main-page>
+            <text-component></text-component>`,
+          },
+          {
+            path: "/contact-page",
+            name: "Contact",
+            template: `<text-component></text-component><main-page title="Page 1"></main-page>`,
+          },
+        ]);
+
+        //Home page path "/" as starting point
+        view.innerHTML = `${myFirstRouter.routes.find(ele=> ele.path ===   window.location.pathname).template}`;
+      });
+    </script>
+  </body>
+</html>
